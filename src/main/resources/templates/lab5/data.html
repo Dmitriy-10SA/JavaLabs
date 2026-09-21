@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Данные клиники</title>
+    <link rel="stylesheet" th:href="@{/lab5.css}">
+</head>
+<body>
+<main class="container data-page">
+    <a class="back" th:href="@{/lab5}">← Формы</a>
+    <h1>Созданные данные</h1>
+    <p class="success" th:if="${message}" th:text="${message}"></p>
+
+    <section>
+        <h2>Питомцы</h2>
+        <p th:if="${#lists.isEmpty(data.pets)}">Питомцев пока нет.</p>
+        <div class="table-wrap" th:unless="${#lists.isEmpty(data.pets)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Кличка</th>
+                    <th>Вид</th>
+                    <th>Дата рождения</th>
+                    <th>Пол</th>
+                    <th>Вакцинация</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${data.pets}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.species}"></td>
+                    <td th:text="${item.birthDate}"></td>
+                    <td th:text="${item.sex}"></td>
+                    <td th:text="${item.vaccinated ? 'Да' : 'Нет'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a th:href="@{/lab5/pets/new}">Добавить питомца</a>
+    </section>
+
+    <section>
+        <h2>Хозяева</h2>
+        <p th:if="${#lists.isEmpty(data.owners)}">Хозяев пока нет.</p>
+        <div class="table-wrap" th:unless="${#lists.isEmpty(data.owners)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ФИО</th>
+                    <th>Телефон</th>
+                    <th>Email</th>
+                    <th>Город</th>
+                    <th>Связь</th>
+                    <th>Экстренный контакт</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${data.owners}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.fullName}"></td>
+                    <td th:text="${item.phone}"></td>
+                    <td th:text="${item.email}"></td>
+                    <td th:text="${item.city}"></td>
+                    <td th:text="${item.contactMethod}"></td>
+                    <td th:text="${item.emergencyContact ? 'Да' : 'Нет'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a th:href="@{/lab5/owners/new}">Добавить хозяина</a>
+    </section>
+
+    <section>
+        <h2>Истории болезней</h2>
+        <p th:if="${#lists.isEmpty(data.medicalRecords)}">Историй болезни пока нет.</p>
+        <div class="table-wrap" th:unless="${#lists.isEmpty(data.medicalRecords)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Питомец</th>
+                    <th>Диагноз</th>
+                    <th>Лечение</th>
+                    <th>Дата</th>
+                    <th>Тяжесть</th>
+                    <th>Повторный приём</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${data.medicalRecords}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.petName}"></td>
+                    <td th:text="${item.diagnosis}"></td>
+                    <td th:text="${item.treatment}"></td>
+                    <td th:text="${item.lastVisitDate}"></td>
+                    <td th:text="${item.severity}"></td>
+                    <td th:text="${item.followUpRequired ? 'Да' : 'Нет'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a th:href="@{/lab5/medical-records/new}">Добавить историю болезни</a>
+    </section>
+
+    <section>
+        <h2>Специалисты</h2>
+        <p th:if="${#lists.isEmpty(data.specialists)}">Специалистов пока нет.</p>
+        <div class="table-wrap" th:unless="${#lists.isEmpty(data.specialists)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ФИО</th>
+                    <th>Телефон</th>
+                    <th>Специализация</th>
+                    <th>Смена</th>
+                    <th>Экстренные вызовы</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${data.specialists}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.fullName}"></td>
+                    <td th:text="${item.phone}"></td>
+                    <td th:text="${item.specialization}"></td>
+                    <td th:text="${item.shift}"></td>
+                    <td th:text="${item.availableForEmergency ? 'Да' : 'Нет'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a th:href="@{/lab5/specialists/new}">Добавить специалиста</a>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новая история болезни</title>
+    <link rel="stylesheet" th:href="@{/lab5.css}">
+</head>
+<body>
+<main class="container form-page">
+    <a class="back" th:href="@{/lab5}">← Все формы</a>
+    <h1>Новая история болезни</h1>
+    <form th:action="@{/lab5/medical-records}" th:object="${form}" method="post">
+        <label>Диагноз<input type="text" th:field="*{diagnosis}" required></label>
+        <label>Лечение<input type="text" th:field="*{treatment}" required></label>
+        <label>Дата посещения<input type="date" th:field="*{lastVisitDate}" required></label>
+        <label>Питомец<select th:field="*{petId}" required>
+            <option value="">Выберите питомца</option>
+            <option th:each="item : ${petOptions}" th:value="${item.value}" th:text="${item.label}"></option>
+        </select></label>
+        <p th:if="${#lists.isEmpty(petOptions)}">Сначала добавьте питомца без истории болезни.</p>
+        <fieldset>
+            <legend>Тяжесть состояния</legend>
+            <label class="inline"><input type="radio" th:field="*{severity}" value="MILD" required> Лёгкая</label><label
+                class="inline"><input type="radio" th:field="*{severity}" value="SERIOUS"> Тяжёлая</label></fieldset>
+        <label class="inline"><input type="checkbox" th:field="*{followUpRequired}"> Требуется повторный приём</label>
+        <button type="submit">Добавить историю</button>
+    </form>
+</main>
+</body>
+</html>

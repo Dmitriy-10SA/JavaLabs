@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,13 @@ public class Specialist {
 
     @Column(nullable = false)
     private String phone;
+
+    @Setter
+    private String shift;
+
+    @Setter
+    @Column(name = "available_for_emergency", nullable = false)
+    private boolean availableForEmergency;
 
     @OneToMany(mappedBy = "specialist", fetch = FetchType.LAZY)
     private final List<Pet> pets = new ArrayList<>();
