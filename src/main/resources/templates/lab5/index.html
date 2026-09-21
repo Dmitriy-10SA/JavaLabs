@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ветеринарная клиника</title>
+    <link rel="stylesheet" th:href="@{/lab5.css}">
+</head>
+<body>
+<main class="container">
+    <p class="eyebrow">Лабораторная работа №5</p>
+    <h1>Формы ветеринарной клиники</h1>
+    <p class="lead">Выберите данные, которые хотите добавить.</p>
+    <p class="success" th:if="${message}" th:text="${message}"></p>
+    <a class="data-link" th:href="@{/lab5/data}">Посмотреть созданные данные →</a>
+    <nav class="cards">
+        <a th:href="@{/lab5/pets/new}"><strong>Питомец</strong><span>Добавить нового пациента</span></a>
+        <a th:href="@{/lab5/owners/new}"><strong>Хозяин</strong><span>Добавить контактное лицо</span></a>
+        <a th:href="@{/lab5/medical-records/new}"><strong>История болезни</strong><span>Записать диагноз</span></a>
+        <a th:href="@{/lab5/specialists/new}"><strong>Специалист</strong><span>Добавить врача</span></a>
+    </nav>
+</main>
+</body>
+</html>

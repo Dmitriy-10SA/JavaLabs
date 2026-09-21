@@ -32,6 +32,13 @@ public class MedicalRecord {
     @Column(name = "last_visit_date", nullable = false)
     private LocalDate lastVisitDate;
 
+    @Setter
+    private String severity;
+
+    @Setter
+    @Column(name = "follow_up_required", nullable = false)
+    private boolean followUpRequired;
+
     @OneToOne(mappedBy = "medicalRecord")
     @Setter
     private Pet pet;

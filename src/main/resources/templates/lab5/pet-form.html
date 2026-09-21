@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новый питомец</title>
+    <link rel="stylesheet" th:href="@{/lab5.css}">
+</head>
+<body>
+<main class="container form-page">
+    <a class="back" th:href="@{/lab5}">← Все формы</a>
+    <h1>Новый питомец</h1>
+    <form th:action="@{/lab5/pets}" th:object="${form}" method="post">
+        <label>Кличка<input type="text" th:field="*{name}" required></label>
+        <label>Дата рождения<input type="date" th:field="*{birthDate}" required></label>
+        <label>Вид<select th:field="*{species}" required>
+            <option value="">Выберите вид</option>
+            <option th:each="item : ${speciesOptions}" th:value="${item.value}" th:text="${item.label}"></option>
+        </select></label>
+        <fieldset>
+            <legend>Пол</legend>
+            <label class="inline"><input type="radio" th:field="*{sex}" value="MALE" required> Самец</label><label
+                class="inline"><input type="radio" th:field="*{sex}" value="FEMALE"> Самка</label></fieldset>
+        <label class="inline"><input type="checkbox" th:field="*{vaccinated}"> Питомец вакцинирован</label>
+        <button type="submit">Добавить питомца</button>
+    </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новый специалист</title>
+    <link rel="stylesheet" th:href="@{/lab5.css}">
+</head>
+<body>
+<main class="container form-page">
+    <a class="back" th:href="@{/lab5}">← Все формы</a>
+    <h1>Новый специалист</h1>
+    <form th:action="@{/lab5/specialists}" th:object="${form}" method="post">
+        <label>ФИО<input type="text" th:field="*{fullName}" required></label>
+        <label>Телефон<input type="text" th:field="*{phone}" required></label>
+        <label>Специализация<select th:field="*{specialization}" required>
+            <option value="">Выберите специализацию</option>
+            <option th:each="item : ${specializationOptions}" th:value="${item.value}" th:text="${item.label}"></option>
+        </select></label>
+        <fieldset>
+            <legend>Смена</legend>
+            <label class="inline"><input type="radio" th:field="*{shift}" value="DAY" required> Дневная</label><label
+                class="inline"><input type="radio" th:field="*{shift}" value="NIGHT"> Ночная</label></fieldset>
+        <label class="inline"><input type="checkbox" th:field="*{availableForEmergency}"> Доступен для экстренных
+            вызовов</label>
+        <button type="submit">Добавить специалиста</button>
+    </form>
+</main>
+</body>
+</html>

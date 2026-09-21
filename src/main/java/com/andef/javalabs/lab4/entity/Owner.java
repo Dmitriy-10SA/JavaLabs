@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,6 +33,17 @@ public class Owner {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @Setter
+    private String city;
+
+    @Setter
+    @Column(name = "contact_method")
+    private String contactMethod;
+
+    @Setter
+    @Column(name = "emergency_contact", nullable = false)
+    private boolean emergencyContact;
 
     @ManyToMany(mappedBy = "owners", fetch = FetchType.LAZY)
     private final Set<Pet> pets = new HashSet<>();

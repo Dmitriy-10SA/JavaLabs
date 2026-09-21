@@ -40,8 +40,15 @@ public class Pet {
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "medical_record_id", nullable = false, unique = true)
+    @Setter
+    private String sex;
+
+    @Setter
+    @Column(nullable = false)
+    private boolean vaccinated;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "medical_record_id", unique = true)
     private MedicalRecord medicalRecord;
 
     @Setter

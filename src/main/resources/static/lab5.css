@@ -1,0 +1,191 @@
+:root {
+    color-scheme: light;
+    font-family: Inter, system-ui, sans-serif;
+    color: #17231d;
+    background: #edf3ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: min(920px, calc(100% - 32px));
+    margin: 64px auto;
+}
+
+.eyebrow {
+    color: #397354;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin: 8px 0 12px;
+}
+
+.lead {
+    color: #5f6e65;
+    font-size: 1.15rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.cards a {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    color: inherit;
+    text-decoration: none;
+    background: white;
+    border: 1px solid #d8e2db;
+    border-radius: 16px;
+}
+
+.cards a:hover {
+    border-color: #397354;
+    transform: translateY(-2px);
+}
+
+.cards span, .back {
+    color: #68756d;
+}
+
+.success {
+    padding: 14px 18px;
+    background: #d9f3df;
+    border-radius: 10px;
+}
+
+.data-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #276644;
+    font-weight: 700;
+}
+
+.data-page section {
+    margin-top: 32px;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+}
+
+.data-page h2 {
+    margin-top: 0;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #d8e2db;
+    white-space: nowrap;
+}
+
+th {
+    color: #397354;
+}
+
+.form-page {
+    max-width: 640px;
+}
+
+.form-page h1 {
+    font-size: 2.5rem;
+}
+
+.back {
+    text-decoration: none;
+}
+
+form {
+    display: grid;
+    gap: 22px;
+    margin-top: 30px;
+    padding: 28px;
+    background: white;
+    border-radius: 18px;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    font-weight: 650;
+}
+
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    padding: 12px;
+    font: inherit;
+    border: 1px solid #b8c6bc;
+    border-radius: 9px;
+    background: white;
+}
+
+fieldset {
+    display: flex;
+    gap: 22px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    margin-bottom: 10px;
+    font-weight: 650;
+}
+
+.inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+button {
+    border: 0;
+    border-radius: 10px;
+    padding: 13px 18px;
+    font: inherit;
+    font-weight: 700;
+    color: white;
+    background: #276644;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d5135;
+}
+
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    fieldset {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

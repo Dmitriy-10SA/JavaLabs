@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новый хозяин</title>
+    <link rel="stylesheet" th:href="@{/lab5.css}">
+</head>
+<body>
+<main class="container form-page">
+    <a class="back" th:href="@{/lab5}">← Все формы</a>
+    <h1>Новый хозяин</h1>
+    <form th:action="@{/lab5/owners}" th:object="${form}" method="post">
+        <label>ФИО<input type="text" th:field="*{fullName}" required></label>
+        <label>Телефон<input type="text" th:field="*{phone}" required></label>
+        <label>Email<input type="email" th:field="*{email}" required></label>
+        <label>Город<select th:field="*{city}" required>
+            <option value="">Выберите город</option>
+            <option th:each="item : ${cityOptions}" th:value="${item.value}" th:text="${item.label}"></option>
+        </select></label>
+        <fieldset>
+            <legend>Предпочтительный способ связи</legend>
+            <label class="inline"><input type="radio" th:field="*{contactMethod}" value="PHONE" required>
+                Телефон</label><label class="inline"><input type="radio" th:field="*{contactMethod}" value="EMAIL">
+            Email</label></fieldset>
+        <label class="inline"><input type="checkbox" th:field="*{emergencyContact}"> Контакт для экстренной
+            связи</label>
+        <button type="submit">Добавить хозяина</button>
+    </form>
+</main>
+</body>
+</html>
