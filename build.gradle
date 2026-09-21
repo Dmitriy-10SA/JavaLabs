@@ -15,7 +15,7 @@ java {
 }
 
 springBoot {
-    mainClass = 'com.andef.javalabs.lab5.Lab5Application'
+    mainClass = 'com.andef.javalabs.lab6.Lab6Application'
 }
 
 repositories {
