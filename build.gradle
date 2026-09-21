@@ -15,7 +15,7 @@ java {
 }
 
 springBoot {
-    mainClass = 'com.andef.javalabs.lab2.Lab2Application'
+    mainClass = 'com.andef.javalabs.lab3.Lab3Application'
 }
 
 repositories {
@@ -23,6 +23,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-aspectj'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
