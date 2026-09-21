@@ -26,12 +26,15 @@ public class Owner {
     private Long id;
 
     @Column(name = "full_name", nullable = false)
+    @Setter
     private String fullName;
 
     @Column(nullable = false)
+    @Setter
     private String phone;
 
     @Column(nullable = false, unique = true)
+    @Setter
     private String email;
 
     @Setter

@@ -32,12 +32,15 @@ public class Pet {
     private Long id;
 
     @Column(nullable = false)
+    @Setter
     private String name;
 
     @Column(nullable = false)
+    @Setter
     private String species;
 
     @Column(name = "birth_date", nullable = false)
+    @Setter
     private LocalDate birthDate;
 
     @Setter
@@ -75,8 +78,25 @@ public class Pet {
         medicalRecord.setPet(this);
     }
 
+    public void clearMedicalRecord() {
+        if (medicalRecord != null) {
+            medicalRecord.setPet(null);
+            medicalRecord = null;
+        }
+    }
+
     public void addOwner(Owner owner) {
         owners.add(owner);
         owner.getPets().add(this);
+    }
+
+    public void removeOwner(Owner owner) {
+        owners.remove(owner);
+        owner.getPets().remove(this);
+    }
+
+    public void replaceOwners(Set<Owner> newOwners) {
+        Set.copyOf(owners).forEach(this::removeOwner);
+        newOwners.forEach(this::addOwner);
     }
 }

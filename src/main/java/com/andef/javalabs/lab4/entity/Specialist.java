@@ -26,12 +26,15 @@ public class Specialist {
     private Long id;
 
     @Column(name = "full_name", nullable = false)
+    @Setter
     private String fullName;
 
     @Column(nullable = false)
+    @Setter
     private String specialization;
 
     @Column(nullable = false)
+    @Setter
     private String phone;
 
     @Setter

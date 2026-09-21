@@ -24,12 +24,15 @@ public class MedicalRecord {
     private Long id;
 
     @Column(nullable = false)
+    @Setter
     private String diagnosis;
 
     @Column(nullable = false, length = 500)
+    @Setter
     private String treatment;
 
     @Column(name = "last_visit_date", nullable = false)
+    @Setter
     private LocalDate lastVisitDate;
 
     @Setter
